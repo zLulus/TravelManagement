@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8CF77EB6-3593-4010-B4A5-8E33B144B2A4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TravelManagement</RootNamespace>
+    <AssemblyName>SimpleMvvm_Wpf</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="De.TorstenMandelkow.MetroChart">
+      <HintPath>..\packages\De.TorstenMandelkow.MetroChart.dll</HintPath>
+    </Reference>
+    <Reference Include="Esri.ArcGISRuntime, Version=10.2.7.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="FirstFloor.ModernUI, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ModernUI.WPF.1.0.9\lib\net45\FirstFloor.ModernUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleMvvmToolkit.5.5.0.0\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.3.5\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleMvvmToolkit-Common, Version=5.5.0.0, Culture=neutral, PublicKeyToken=20fad5ed49a0c3b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SimpleMvvmToolkit.5.5.0.0\lib\net45\SimpleMvvmToolkit-Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleMvvmToolkit-WPF, Version=5.5.0.0, Culture=neutral, PublicKeyToken=20fad5ed49a0c3b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SimpleMvvmToolkit.5.5.0.0\lib\net45\SimpleMvvmToolkit-WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleMvvmToolkit.5.5.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="LogInWindow.xaml.cs">
+      <DependentUpon>LogInWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\ServerLog.cs" />
+    <Compile Include="Resources\Converters\BoolToVisible.cs" />
+    <Compile Include="Resources\Converters\GradeConverter.cs" />
+    <Compile Include="Resources\Converters\IsSolvedConverter.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Services\AddAdminServer.cs" />
+    <Compile Include="Services\CheckAdminServer.cs" />
+    <Compile Include="Services\LogInServer.cs" />
+    <Compile Include="Services\SendEmergencyMsgsServer.cs" />
+    <Compile Include="Services\SendMsgsServer.cs" />
+    <Compile Include="Services\ServerLogServer.cs" />
+    <Compile Include="Utilities\IgnoreMouseWheelBehavior.cs" />
+    <Compile Include="Utilities\InternetHelperForList.cs" />
+    <Compile Include="Utilities\InternetHepler.cs" />
+    <Compile Include="Models\EmergencyCall.cs" />
+    <Compile Include="Models\LostContact.cs" />
+    <Compile Include="Models\PedestrianVolume.cs" />
+    <Compile Include="Models\Point.cs" />
+    <Compile Include="Models\Scenic.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\Tourist.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Services\EmergencyCallServer.cs" />
+    <Compile Include="Services\IMapService.cs" />
+    <Compile Include="Services\IRenderGraphic.cs" />
+    <Compile Include="Services\ISceniceSpot.cs" />
+    <Compile Include="Services\ITouristPoints.cs" />
+    <Compile Include="Services\LocalMapServiceAgent.cs" />
+    <Compile Include="Services\LostContactServer.cs" />
+    <Compile Include="Services\PedestrianVolumeServer.cs" />
+    <Compile Include="Services\SceniceSpotServiceAgent.cs" />
+    <Compile Include="Utilities\CrackHelper.cs" />
+    <Compile Include="Services\TouristPointsManage.cs" />
+    <Compile Include="Utilities\NlogHelper.cs" />
+    <Compile Include="Utilities\SendMsgHelper.cs" />
+    <Compile Include="ViewModels\AddAdminViewModel.cs" />
+    <Compile Include="ViewModels\CheckAdminViewModel.cs" />
+    <Compile Include="ViewModels\LogInViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MapLayerViewModel.cs" />
+    <Compile Include="ViewModels\EmergencyCallViewModel.cs" />
+    <Compile Include="ViewModels\LostContactViewModel.cs" />
+    <Compile Include="ViewModels\ManageTouristViewModel.cs" />
+    <Compile Include="ViewModels\ModelsUserControlViewModel.cs" />
+    <Compile Include="ViewModels\PedestrianVolumeViewModel.cs" />
+    <Compile Include="ViewModels\QueryScenicInforViewModel.cs" />
+    <Compile Include="ViewModels\QueryTourisViewModel.cs" />
+    <Compile Include="ViewModels\ScanScenicSpotsViewModel.cs" />
+    <Compile Include="ViewModels\ScenicSpotManageViewModel.cs" />
+    <Compile Include="Locators\ViewModelLocator.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\SendEmergencyMsgsViewModel.cs" />
+    <Compile Include="ViewModels\SendMsgsViewModel.cs" />
+    <Compile Include="ViewModels\ServerLogViewModel.cs" />
+    <Compile Include="Views\Contents\AddAdminView.xaml.cs">
+      <DependentUpon>AddAdminView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\CheckAdminView.xaml.cs">
+      <DependentUpon>CheckAdminView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\SendEmergencyMsgs.xaml.cs">
+      <DependentUpon>SendEmergencyMsgs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\SendMsgs.xaml.cs">
+      <DependentUpon>SendMsgs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\ServerLogView.xaml.cs">
+      <DependentUpon>ServerLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelsUserControl.xaml.cs">
+      <DependentUpon>ModelsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\EmergencyCallStatistics.xaml.cs">
+      <DependentUpon>EmergencyCallStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\LostContactStatistics.xaml.cs">
+      <DependentUpon>LostContactStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\MapLayerManageView.xaml.cs">
+      <DependentUpon>MapLayerManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\PedestrianVolumeStatistics.xaml.cs">
+      <DependentUpon>PedestrianVolumeStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\QueryTourist.xaml.cs">
+      <DependentUpon>QueryTourist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\LayerInforQueryView.xaml.cs">
+      <DependentUpon>LayerInforQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\ScenicSpotInput.xaml.cs">
+      <DependentUpon>ScenicSpotInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\TouristManage.xaml.cs">
+      <DependentUpon>TouristManage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\Dialog_ShowTouristLocation.xaml.cs">
+      <DependentUpon>Dialog_ShowTouristLocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ScenicSpotBasicSetting.xaml.cs">
+      <DependentUpon>ScenicSpotBasicSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ScenicSpotMonitoring.xaml.cs">
+      <DependentUpon>ScenicSpotMonitoring.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\Dialog_ScenicScan.xaml.cs">
+      <DependentUpon>Dialog_ScenicScan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contents\Appearance.xaml.cs">
+      <DependentUpon>Appearance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AppearanceViewModel.cs" />
+    <Page Include="LogInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\Themes\Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\ModernWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Contents\AddAdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Contents\CheckAdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Contents\SendEmergencyMsgs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Contents\SendMsgs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Contents\ServerLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ModelsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Contents\EmergencyCallStatistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Contents\LostContactStatistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Contents\MapLayerManageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Contents\PedestrianVolumeStatistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Contents\QueryTourist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Contents\LayerInforQueryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Contents\ScenicSpotInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Contents\TouristManage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialog\Dialog_ShowTouristLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ScenicSpotBasicSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ScenicSpotMonitoring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialog\Dialog_ScenicScan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Contents\About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Contents\Appearance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\location_marker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\location_marker_select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\0102.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\01.png" />
+    <Resource Include="Resources\Image\0105.png" />
+    <Resource Include="Resources\Image\0106.png" />
+    <Resource Include="Resources\Image\03.png" />
+    <Resource Include="Resources\Image\0318.png" />
+    <Resource Include="Resources\Image\0603.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\background.jpg" />
+    <Resource Include="Resources\Image\phone.png" />
+    <Resource Include="Resources\Image\sign.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

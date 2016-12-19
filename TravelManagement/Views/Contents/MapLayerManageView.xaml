@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="ModernUINavigation.Pages.Home"
+             xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d"
+             d:DesignHeight="900" d:DesignWidth="900"
+             DataContext="{Binding Source={StaticResource Locator},Path= CommonMapViewModel}">
+    <Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+
+            <esri:MapView x:Name="MyMapView" Grid.Column="1">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger>
+                        <i:InvokeCommandAction Command="{Binding LoadMapViewCommand}"
+                                               CommandParameter="{Binding ElementName=MyMapView}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <esri:Map InitialViewpoint="-13279586, 4010136, -12786147, 4280850, 102100">
+                    <esri:ArcGISTiledMapServiceLayer ID="BaseMap" DisplayName="影像底图"
+                                                     ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" />
+                </esri:Map>
+            </esri:MapView>
+            <Border Background="White" BorderBrush="AliceBlue" BorderThickness="1"
+                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Margin="30" Padding="20">
+                <Border.Effect>
+                    <DropShadowEffect />
+                </Border.Effect>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+
+                    <RadioButton x:Name="WorldTopoRb"
+                                 Tag="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"
+                                 Margin="5,0,0,0"
+                                  IsChecked="true"
+                                 Command="{Binding  SwitchMapCommand}"
+                                 CommandParameter="{Binding ElementName=WorldImageryRb,Path=Tag}"
+                                 GroupName="Layers" Content="温度" />
+                    <RadioButton x:Name="WorldStreetRb"
+                                 Tag="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"
+                                 Margin="5,0,0,0"
+                                 Command="{Binding  SwitchMapCommand}"
+                                 CommandParameter="{Binding ElementName=WorldStreetRb,Path=Tag}"
+                                 GroupName="Layers" Content="湿度" />
+                    <RadioButton x:Name="WorldImageryRb"
+                                 Tag="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer"
+                                 Margin="5,0,0,0"
+                                 GroupName="Layers" Content="风向" Command="{Binding  SwitchMapCommand}"
+                                 CommandParameter="{Binding ElementName=WorldImageryRb,Path=Tag}" />
+                    <RadioButton x:Name="WorldOceanBaseRb"
+                                 Tag="http://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer"
+                                 Margin="5,0,0,0"
+                                 Command="{Binding  SwitchMapCommand}"
+                                 CommandParameter="{Binding ElementName=WorldOceanBaseRb,Path=Tag}"
+                                 GroupName="Layers" Content="雨量" />
+                    <RadioButton x:Name="NatGeoWorldMapRb"
+                                 Tag="http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer"
+                                 Margin="5,0,0,0"
+                                 Command="{Binding  SwitchMapCommand}"
+                                 CommandParameter="{Binding ElementName=NatGeoWorldMapRb,Path=Tag}"
+                                 GroupName="Layers" Content="日照" />
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Border BorderThickness="0,0,2,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="5,20,5,20" FontSize="12pt" Background="AliceBlue">
+                    <Run Text="Map Layers" FontWeight="Bold" />
+                </TextBlock>
+                <ListView x:Name="legend" Grid.Row="1"
+                          ItemsSource="{Binding ElementName=MyMapView,Path=InternalLayers}"
+                          AllowDrop="True">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="1" Padding="4" Background="AliceBlue">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox Grid.Column="0" IsChecked="{Binding IsVisible, Mode=TwoWay}"
+                                              VerticalAlignment="Center" />
+                                    <TextBlock Grid.Column="1" Text="{Binding DisplayName}" VerticalAlignment="Center" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

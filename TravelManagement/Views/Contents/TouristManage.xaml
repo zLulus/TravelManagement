@@ -1,0 +1,191 @@
+﻿<UserControl x:Class="TravelManagement.Views.Contents.TouristManage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             mc:Ignorable="d"
+             x:Name="UserControl"
+             DataContext="{Binding Source={StaticResource Locator},Path=ManageTouristViewModel}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="Grid">
+
+        <esri:MapView x:Name="MyMapView" WrapAround="True">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Loaded">
+                    <i:InvokeCommandAction Command="{Binding LoadMaptipCommand}"
+                                           CommandParameter="{Binding ElementName=mapTip}"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="LayerLoaded">
+                    <i:InvokeCommandAction Command="{Binding LoadTouristInforCommand}"
+                                           CommandParameter="{Binding ElementName=MyMapView}"/>
+
+                </i:EventTrigger>
+                <i:EventTrigger EventName="ExtentChanged">
+                    <i:InvokeCommandAction Command="{Binding MyMapExtentChangedCommand}"
+                                          />
+                </i:EventTrigger>
+                <i:EventTrigger EventName="MouseMove">
+                    <ei:CallMethodAction MethodName="MyMapView_OnMouseMove" TargetObject="{Binding }" />
+                </i:EventTrigger>
+                <i:EventTrigger EventName="MouseDown">
+                    <ei:CallMethodAction MethodName="MyMapView_MouseDown" TargetObject="{Binding }" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <esri:Map>
+                <esri:Map.InitialViewpoint>
+                    <esri:ViewpointCenter X="116.45" Y="39.90" Scale="100000" SpatialReferenceID="4326" />
+                </esri:Map.InitialViewpoint>
+                <esri:ArcGISTiledMapServiceLayer
+                    ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+                <esri:GraphicsLayer ID="GraphicsLayer" />
+            </esri:Map>
+            <esri:MapView.Overlays>
+                <esri:OverlayItemsControl>
+                    <Border x:Name="mapTip" Background="White" BorderBrush="Black" BorderThickness="2"
+                            Padding="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4"
+                            DataContext="{Binding Graphic}"
+                            Visibility="{Binding isVisible,Converter={StaticResource BoolToVisibleConverter}}"
+                            esri:ViewBase.ViewOverlayAnchor="{Binding Geometry}">
+                        <StackPanel MaxWidth="180" Margin="5">
+                            <TextBlock Text="{Binding Attributes[Name],StringFormat='姓名：{0}'}" TextWrapping="Wrap" />
+                            <TextBlock x:Name="PhoneNumTextBlock" Text="{Binding Attributes[PhoneNum],StringFormat='手机号：{0}'}" TextWrapping="Wrap" />
+                            <TextBlock Text="{Binding Attributes[Longitude],StringFormat='经度：{0}'}" TextWrapping="Wrap" />
+                            <TextBlock Text="{Binding Attributes[Latitude],StringFormat='纬度：{0}'}" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Border>
+                </esri:OverlayItemsControl>
+            </esri:MapView.Overlays>
+            <esri:MapView.GraphicsOverlays>
+                <esri:GraphicsOverlay ID="overviewOverlay">
+                    <esri:GraphicsOverlay.Renderer>
+                        <esri:SimpleRenderer>
+                            <esri:SimpleFillSymbol Color="#22FF0000">
+                                <esri:SimpleFillSymbol.Outline>
+                                    <esri:SimpleLineSymbol Color="Red" Width="2" />
+                                </esri:SimpleFillSymbol.Outline>
+                            </esri:SimpleFillSymbol>
+                        </esri:SimpleRenderer>
+                    </esri:GraphicsOverlay.Renderer>
+                </esri:GraphicsOverlay>
+            </esri:MapView.GraphicsOverlays>
+        </esri:MapView>
+        <Grid Background="#E5EF64"
+              HorizontalAlignment="Right" VerticalAlignment="Top"
+              Margin="30">
+            <esri:MapView x:Name="OverviewMap" Width="300" Height="200" Margin="5">
+                <esri:MapView.Resources>
+                    <esri:SimpleFillSymbol x:Key="RedFillSymbol" Color="#22FF0000">
+                        <esri:SimpleFillSymbol.Outline>
+                            <esri:SimpleLineSymbol Color="Red" Width="2" />
+                        </esri:SimpleFillSymbol.Outline>
+                    </esri:SimpleFillSymbol>
+                </esri:MapView.Resources>
+                <esri:Map>
+                    <esri:Map.InitialViewpoint>
+                        <!--Center on San Diego, at scale 1:50,000, using coordinates in WGS84 spatial reference (4326)-->
+                        <esri:ViewpointCenter X="116.45" Y="39.90" Scale="5000000" SpatialReferenceID="4326" />
+                    </esri:Map.InitialViewpoint>
+                    <esri:ArcGISTiledMapServiceLayer
+                        ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+                </esri:Map>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="LayerLoaded">
+                        <i:InvokeCommandAction Command="{Binding LoadOverViewCommand}"
+                                               CommandParameter="{Binding ElementName=OverviewMap}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <esri:MapView.GraphicsOverlays>
+
+                    <esri:GraphicsOverlay ID="overviewOverlay">
+                        <esri:GraphicsOverlay.Renderer>
+                            <esri:SimpleRenderer >
+                                <esri:SimpleFillSymbol Color="#22FF0000">
+                                    <esri:SimpleFillSymbol.Outline>
+                                        <esri:SimpleLineSymbol Color="Red" Width="1" />
+                                    </esri:SimpleFillSymbol.Outline>
+                                </esri:SimpleFillSymbol>
+                            </esri:SimpleRenderer>
+                        </esri:GraphicsOverlay.Renderer>
+                    </esri:GraphicsOverlay>
+                </esri:MapView.GraphicsOverlays>
+            </esri:MapView>
+        </Grid>
+        <!--选择范围、发送消息-->
+        <Border Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <StackPanel>
+                <Button Command="{Binding SelectCommond}" Content="{Binding SelectText}"></Button>
+                <!--<TextBlock Text="半径："></TextBlock>
+                <ProgressBar Value="100" ></ProgressBar>-->
+                <Button Command="{Binding ShowSendMsgsCommond}" Content="发送咨询"></Button>
+                <Button Command="{Binding ShowSendEmergencyMsgsCommond}" Content="发送紧急短信"></Button>
+            </StackPanel>
+        </Border>
+        <!--咨询发送小窗口-->
+        <Border Width="300" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsSendMsgsVisible, Converter={StaticResource BoolToVisibleConverter}}" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Text="发送消息："/>
+                <TextBox Grid.Row="1" Text="{Binding Content}"></TextBox>
+                <Button Grid.Row="2" Content="发送" Command="{Binding SendMsgsCommond}" HorizontalAlignment="Right"></Button>
+            </Grid>
+        </Border>
+        <!--短信发送小窗口-->
+        <Border Width="300" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsSendEmergencyMsgsVisible, Converter={StaticResource BoolToVisibleConverter}}" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ComboBox  SelectedIndex="{Binding SelectedIndex}">
+                    <ComboBoxItem>灾害紧急报告模板</ComboBoxItem>
+                    <ComboBoxItem>灾害紧急报告模板2</ComboBoxItem>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SetSendTextCommand}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+                <TextBlock Grid.Row="1" Text="输入内容："></TextBlock>
+                <TextBox Grid.Row="2" Text="{Binding SendText}"></TextBox>
+                <Button Grid.Row="3" Command="{Binding SendEmergencyMsgsCommond}" Content="发送" HorizontalAlignment="Right"></Button>
+            </Grid>
+        </Border>
+        <!--选择时间-->
+        <Border Margin="0,5,5,0" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="检索时间："></TextBlock>
+                <DatePickerTextBox Text="{Binding SearchTime,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding CanSearchCommand}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </DatePickerTextBox>
+                <Button Content="检索" Command="{Binding SearchCommand}" IsEnabled="{Binding SearchBtIsEnabled}"></Button>
+                
+            </StackPanel>
+            
+        </Border>
+    </Grid>
+</UserControl>

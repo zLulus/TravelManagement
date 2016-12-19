@@ -1,0 +1,17 @@
+﻿<Application x:Class="TravelManagement.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="LogInWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary x:Key="ModernUi">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/ModernUI.xaml"  />
+                <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/ModernUI.Light.xaml" />
+                <ResourceDictionary Source="Resources/Themes/Dictionary.xaml"/>
+                <ResourceDictionary Source="Resources/Themes/ModernWindow.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <vm:ViewModelLocator xmlns:vm="clr-namespace:TravelManagement"
+                                   x:Key="Locator" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

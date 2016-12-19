@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="">
+    <Position X="0.5" Y="0.94" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="">
+    <Position X="0.513" Y="18.176" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="">
+    <Position X="32.809" Y="1.212" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="">
+    <Position X="33.197" Y="17.931" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="TravelManagement.App" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Global" Collapsed="true">
+    <Position X="3" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABIAAAAIAAAAERAAAAAAIAAEAAAABAAAAAAA=</HashCode>
+      <FileName>Global.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModelLocator" Collapsed="true">
+    <Position X="10" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AIgAACBAAAAAAAAAABACQBgAAAgQAAAAAUAEIAAgBAA=</HashCode>
+      <FileName>Locators\ViewModelLocator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.LogInWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LogInWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.MainPageViewModel" Collapsed="true">
+    <Position X="14.5" Y="12.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAggAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MainPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.Administrator" Collapsed="true">
+    <Position X="26.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAgABQAIAQQAAAEAAACAAAAQgAAAEA=</HashCode>
+      <FileName>Models\Administrator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.EmergencyCall" Collapsed="true">
+    <Position X="26.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAgACAAIAAgAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\EmergencyCall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.EmergencyCallModel" Collapsed="true">
+    <Position X="29.5" Y="11.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAABQAAAAEAAgAAAAAAIAAAACAAAAAAAAAAAAIAAAwA=</HashCode>
+      <FileName>Models\EmergencyCall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.LostContact" Collapsed="true">
+    <Position X="26.5" Y="10.75" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAABAAAAAEAgACAAIAAgAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Models\LostContact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.LostContactModel" Collapsed="true">
+    <Position X="29.25" Y="10.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAAQAAAAAAAAAAAABAAAAAQAAAAAAEAQAABBEAAQA=</HashCode>
+      <FileName>Models\LostContact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.Model" Collapsed="true">
+    <Position X="28.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABQAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.PedestrianVolume" Collapsed="true">
+    <Position X="26.5" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAgAAACIAAAAAAAABAAAAAQAAA=</HashCode>
+      <FileName>Models\PedestrianVolume.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.PedestrianVolumeModel" Collapsed="true">
+    <Position X="29.25" Y="9.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAEAgACAAIAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PedestrianVolume.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.Point" Collapsed="true">
+    <Position X="30" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABQAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Point.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.Scenic" Collapsed="true">
+    <Position X="19" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAEAggAAAIAAIAAQACAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Scenic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.ServerLog" Collapsed="true">
+    <Position X="26.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAgAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAwA=</HashCode>
+      <FileName>Models\ServerLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.Tourist" Collapsed="true">
+    <Position X="30" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Models\Tourist.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Models.User" Collapsed="true">
+    <Position X="26.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABAAAAAAEgBAAAAAQAAAQAAAAIAAACAAAEAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagerClientDemo.Entities.Schedule" Collapsed="true">
+    <Position X="28.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Models\Schedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Properties.Resources" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Properties.Settings" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Converters.BoolToVisibleConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Resources\Converters\BoolToVisible.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Converters.GradeConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Resources\Converters\GradeConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Converters.IsSolvedConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Resources\Converters\IsSolvedConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Services.AddAdminServer" Collapsed="true">
+    <Position X="19" Y="11.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Services\AddAdminServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Services.CheckAdminServer" Collapsed="true">
+    <Position X="19" Y="11" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAQAAEAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Services\CheckAdminServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Services.EmergencyCallServer" Collapsed="true">
+    <Position X="21.75" Y="13.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAAAAAAAAAkAAA=</HashCode>
+      <FileName>Services\EmergencyCallServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Services.LocalMapServiceAgent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABACAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\LocalMapServiceAgent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Services.LogInServer" Collapsed="true">
+    <Position X="22.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\LogInServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Services.LostContactServer" Collapsed="true">
+    <Position X="19" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAIIAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\LostContactServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Services.PedestrianVolumeServer" Collapsed="true">
+    <Position X="19" Y="12.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAEAAAACAGAAAAAAAAAAEAgAAAAAAA=</HashCode>
+      <FileName>Services\PedestrianVolumeServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Services.SceniceSpotServiceAgent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="11" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAEAAAAAAIAAgAAAAAAAABAAAAAAg=</HashCode>
+      <FileName>Services\SceniceSpotServiceAgent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Services.SendEmergencyMsgsServer" Collapsed="true">
+    <Position X="21.75" Y="12.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SendEmergencyMsgsServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Services.SendMsgsServer" Collapsed="true">
+    <Position X="20.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Services\SendMsgsServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Services.ServerLogServer" Collapsed="true">
+    <Position X="19" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAACAAAAAAAAAA=</HashCode>
+      <FileName>Services\ServerLogServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Services.TouristPointsManage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="11.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAgAAAAAAAAgAQAAAAAABAAAAAAA=</HashCode>
+      <FileName>Services\TouristPointsManage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AllDemo.WindowsMessage" Collapsed="true">
+    <Position X="3" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>yKBNnOhuSiNLYrHifsuYX+LcBkzdudL7bm5Dt//nf3Q=</HashCode>
+      <FileName>Utilities\CrackHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AllDemo.CrackHelper" Collapsed="true">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIIAAAAAASAAAAAAAgAAAAAAAAAAAATgAAg=</HashCode>
+      <FileName>Utilities\CrackHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Utilities.IgnoreMouseWheelBehavior" Collapsed="true">
+    <Position X="3" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAFAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Utilities\IgnoreMouseWheelBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Utilities.NlogHelper" Collapsed="true">
+    <Position X="4.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAgAAAAAAAAAAEAAAAAAAAAAAwAAAAAAAAEA=</HashCode>
+      <FileName>Utilities\NlogHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Utilities.SendMsgHelper" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAEAAQCAAAAAAAAAAAAQAAAAAAEAAA=</HashCode>
+      <FileName>Utilities\SendMsgHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Helpers.InternetHelperForList&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Utilities\InternetHelperForList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.Helpers.InternetHepler" Collapsed="true">
+    <Position X="4.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAIRAAAAAAAAAAAAAQAAAQAAAAAA=</HashCode>
+      <FileName>Utilities\InternetHepler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.AddAdminViewModel" Collapsed="true">
+    <Position X="10" Y="15.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABCABAAAQAAAAUIIAAgAAAAEAAAAEA=</HashCode>
+      <FileName>ViewModels\AddAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.CheckAdminViewModel" Collapsed="true">
+    <Position X="14.25" Y="13.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAGoAAAAKCAQEACAEAEABAAAAYIACCAQAAEAAgABA=</HashCode>
+      <FileName>ViewModels\CheckAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.EmergencyCallViewModel" Collapsed="true">
+    <Position X="14.75" Y="11.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAIQAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\EmergencyCallViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.LogInViewModel" Collapsed="true">
+    <Position X="13" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAQAAAAEMABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\LogInViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.LostContactViewModel" Collapsed="true">
+    <Position X="10" Y="12.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAIQAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\LostContactViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.MainWindowViewModel" Collapsed="true">
+    <Position X="12.25" Y="12.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAQAAAGAAAAAgAAAAAAAAAAAAAAAAAAAhAAABAAEA=</HashCode>
+      <FileName>ViewModels\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.ManageTouristViewModel" Collapsed="true">
+    <Position X="10" Y="13.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ACqeAgAQskAIkIkAQRoiQAQBAAQo6UwCDIBiCyBACQE=</HashCode>
+      <FileName>ViewModels\ManageTouristViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.MapLayerViewModel" Collapsed="true">
+    <Position X="14.75" Y="10.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAgAAAAAAAAAAAAAAAAggAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>ViewModels\MapLayerViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.ModelsUserControlViewModel" Collapsed="true">
+    <Position X="14.25" Y="14.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAACAAAAAAABAAQAAAAEAgAAAAIAAA=</HashCode>
+      <FileName>ViewModels\ModelsUserControlViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.PedestrianVolumeViewModel" Collapsed="true">
+    <Position X="10" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAIIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\PedestrianVolumeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.QueryScenicInforViewModel" Collapsed="true">
+    <Position X="14.5" Y="8.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AGBAAAEAgCAAAABgAAAEAAAABACgIACAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\QueryScenicInforViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.QueryTourisViewModel" Collapsed="true">
+    <Position X="10" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEACAAAQAIAgQAAMAEAAAAABAAgAAAAAAAAAQAAAEg=</HashCode>
+      <FileName>ViewModels\QueryTourisViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.ScanScenicSpotsViewModel" Collapsed="true">
+    <Position X="12.25" Y="10.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAQAAAAAAAAAAAEQAAAAEAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>ViewModels\ScanScenicSpotsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.ScenicSpotManageViewModel" Collapsed="true">
+    <Position X="10" Y="9.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>EKEQAgAAEEABEQECABEAAJAAAACsAAABAAAgCAAAAQA=</HashCode>
+      <FileName>ViewModels\ScenicSpotManageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.SendEmergencyMsgsViewModel" Collapsed="true">
+    <Position X="13.5" Y="9.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAEAAAAAAgCAAAAAAAMgEQACIBAAAAAAAA=</HashCode>
+      <FileName>ViewModels\SendEmergencyMsgsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.SendMsgsViewModel" Collapsed="true">
+    <Position X="10" Y="8.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAIAAABCAAAAAAEAAA=</HashCode>
+      <FileName>ViewModels\SendMsgsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelManagement.ViewModels.ServerLogViewModel" Collapsed="true">
+    <Position X="12.25" Y="8.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgAAAAAAgACAAIAAoAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ViewModels\ServerLogViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModernUINavigation.Pages.Settings.AppearanceViewModel" Collapsed="true">
+    <Position X="10" Y="14.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIhCAAAAABACAEAQAABAAgBAAAAgQAAAIAAEAAAAAAA=</HashCode>
+      <FileName>ViewModels\AppearanceViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModernUINavigation.Pages.Settings.About" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\About.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ModernUINavigation.Pages.Settings.Appearance" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\Appearance.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.AddAdminView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\AddAdminView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.CheckAdminView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="16.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\CheckAdminView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.EmergencyCallStatistics" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\EmergencyCallStatistics.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.ScenicInforQueryView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\LayerInforQueryView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.LostContactStatistics" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="11.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\LostContactStatistics.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.PedestrianVolumeStatistics" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\PedestrianVolumeStatistics.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.QueryTourist" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\QueryTourist.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.ScenicSpotInput" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\ScenicSpotInput.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.SendEmergencyMsgs" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\SendEmergencyMsgs.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.SendMsgs" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\SendMsgs.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.ServerLogView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\ServerLogView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Contents.TouristManage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\TouristManage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ModernUINavigation.Pages.Home" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Contents\MapLayerManageView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ModernUINavigation.Pages.SettingsPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\SettingsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Dialog.Dialog_ScenicScan" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="15.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dialog\Dialog_ScenicScan.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Dialog.Dialog_ShowTouristLocation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="15.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dialog\Dialog_ShowTouristLocation.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.ModelsUserControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="11.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ModelsUserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Pages.ScenicSpotBasicSetting" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\ScenicSpotBasicSetting.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TravelManagement.Views.Pages.ScenicSpotMonitoring" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\ScenicSpotMonitoring.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="TravelManagement.Services.IMapService" Collapsed="true">
+    <Position X="19" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IMapService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TravelManagement.Services.IRenderGraphic" Collapsed="true">
+    <Position X="19" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Services\IRenderGraphic.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TravelManagement.Services.ISceniceSpot" Collapsed="true">
+    <Position X="22.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAEAAAAAAIAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Services\ISceniceSpot.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TravelManagement.Services.ITouristPoints" Collapsed="true">
+    <Position X="20.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ITouristPoints.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="TravelManagement.Services.StatisticsWay" Collapsed="true">
+    <Position X="7.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Services\PedestrianVolumeServer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

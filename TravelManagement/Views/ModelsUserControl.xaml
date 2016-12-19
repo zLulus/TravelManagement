@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="TravelManagement.Views.ModelsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelManagement.Views"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:utilities="clr-namespace:TravelManagement.Utilities"
+             mc:Ignorable="d"  x:Name="modelUserControl"
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{Binding Source={StaticResource Locator},Path=ModelsUserControlViewModel}">
+    <UserControl.Resources>
+        <!--<Storyboard x:Key="BorderBrushShowStoryboard" FillBehavior="HoldEnd" >
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="BorderBT">
+                <SplineColorKeyFrame KeyTime="00:00:00" Value="Transparent"></SplineColorKeyFrame>
+                <SplineColorKeyFrame KeyTime="00:00:0.1" Value="#3B8DBD"></SplineColorKeyFrame>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="BorderBrushHideStoryboard" FillBehavior="HoldEnd" >
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="BorderBT">
+                <SplineColorKeyFrame KeyTime="00:00:00" Value="#3B8DBD"></SplineColorKeyFrame>
+                <SplineColorKeyFrame KeyTime="00:00:0.1" Value="Transparent"></SplineColorKeyFrame>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>-->
+        <Style x:Key="ListBoxItemStyle1" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate  TargetType="ListBoxItem">
+                        <!--<ControlTemplate.Triggers>
+                            
+                        -->
+                        <!--鼠标移入-->
+                        <!--
+                        
+                            <EventTrigger SourceName="BorderBT" RoutedEvent="MouseEnter">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard Storyboard="{StaticResource BorderBrushShowStoryboard}"></BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                            
+                        -->
+                        <!--鼠标移出-->
+                        <!--
+                        
+                            <EventTrigger SourceName="BorderBT" RoutedEvent="MouseLeave">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard Storyboard="{StaticResource BorderBrushHideStoryboard}"></BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>-->
+                        <!--Con-->
+                        <Border x:Name="BorderBT" Height="180" Width="240" Background="Transparent"  Margin="20" BorderThickness="5" BorderBrush="#EFEFEF">
+                            <Border.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform  CenterX="200" CenterY="125"></ScaleTransform>
+                                    <!--缩放中心为200,125。RenderTransform.Children[0]-->
+                                    <RotateTransform  CenterX="0" CenterY="0"></RotateTransform>
+                                    <!--旋转中心为100,50。RenderTransform.Children[1]-->
+                                    <SkewTransform    CenterX="50"/>
+                                    <!--倾斜。RenderTransform.Children[2]-->
+                                    <TranslateTransform />
+                                    <!--平移。RenderTransform.Children[3]-->
+                                </TransformGroup>
+                            </Border.RenderTransform>
+                            <Grid  x:Name="Grid1" Background="White" Margin="0" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Name="Image1" Source="{Binding Path=ModelImage}" Grid.Row="0" Margin="10" Stretch="Uniform"></Image>
+                                <Label Name="Label1" Content="{Binding Title}" Grid.Row="1" HorizontalContentAlignment="Center" FontFamily="BankGothic Md BT" FontSize="20"  ></Label>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="White"/>
+    </UserControl.Resources>
+    <ScrollViewer Margin="0" Background="{StaticResource BackgroundBrush}" x:Name="ScrollViewer1"  Height="{Binding ElementName=modelUserControl,Path=ActualHeight}" Width="{Binding ElementName=modelUserControl,Path=ActualWidth,UpdateSourceTrigger=PropertyChanged}" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto">
+        <!--<i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseWheel">
+                <ei:CallMethodAction MethodName="UIElement_OnMouseWheel" TargetObject="{Binding }" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>-->
+        <Grid Background="{StaticResource BackgroundBrush}">
+            <!--<i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseWheel">
+                    <ei:CallMethodAction MethodName="UIElement_OnMouseWheel" TargetObject="{Binding }" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>-->
+            <ListBox  x:Name="ModuleListBox" BorderBrush="Transparent" SelectedItem="{Binding SelectedModel}" ItemsSource="{Binding Models}"  Background="{StaticResource BackgroundBrush}"
+                      VerticalAlignment="Center" HorizontalAlignment="Center" ItemContainerStyle="{DynamicResource ListBoxItemStyle1}">
+                <i:Interaction.Behaviors>
+                    <utilities:IgnoreMouseWheelBehavior />
+                </i:Interaction.Behaviors>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LoadCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}"/>
+                    </i:EventTrigger>
+                    <!--<i:EventTrigger EventName="MouseWheel">
+                        <i:InvokeCommandAction Command="{Binding MouseWheelCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseWheel">
+                        <ei:CallMethodAction MethodName="UIElement_OnMouseWheel" TargetObject="{Binding }" />
+                    </i:EventTrigger>-->
+                </i:Interaction.Triggers>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Background="{Binding ElementName=ScrollViewer1,Path=Background}"  Orientation="Horizontal" Height="auto" Width="1200" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <!--<i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseWheel">
+                                    <ei:CallMethodAction MethodName="UIElement_OnMouseWheel" TargetObject="{Binding }" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>-->
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

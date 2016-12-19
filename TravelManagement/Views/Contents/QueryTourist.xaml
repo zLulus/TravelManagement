@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="TravelManagement.Views.Contents.QueryTourist"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             mc:Ignorable="d"
+             x:Name="FaUserControl"
+             DataContext="{Binding Source={StaticResource Locator},Path= QueryTourisViewModel}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding LoadCommand}"
+                                       CommandParameter="{Binding ElementName=TouristDataGrid}" />
+            </i:EventTrigger>
+
+        </i:Interaction.Triggers>
+        <Grid.Resources>
+            <Style x:Key="NewBtStyle" TargetType="Button">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Height" Value="30" />
+                <Setter Property="Width" Value="40" />
+                <Setter Property="Margin" Value="0,0,40,0" />
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+            <!--DataGridRow行-->
+            <Style TargetType="DataGridCell">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--上面条件选择-->
+        <Grid Grid.Row="0" Background="#F9F9F9" Margin="0,10,200,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="请输入手机号/姓名:" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBox x:Name="tvTextBox" Grid.Column="1" Margin="10,0,10,0" VerticalAlignment="Center" />
+            <Button IsEnabled="{Binding IsEnabled}" Grid.Column="2" Content="查询" Command="{Binding SearchCommand}" CommandParameter="{Binding ElementName=tvTextBox,Path=Text}" Style="{StaticResource BtStyle}"/>
+        </Grid>
+        <DataGrid Grid.Row="1"
+                  Name="TouristDataGrid"
+                  VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Auto"
+                  AutoGenerateColumns="False"
+                  RowDetailsVisibilityMode="VisibleWhenSelected"
+                  EnableRowVirtualization="False"
+                  AreRowDetailsFrozen="False"
+                  IsReadOnly="True"
+                  HorizontalAlignment="Center"
+                  SelectionMode="Single"
+                  DataContext="{Binding TouristCollection,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  ItemsSource="{Binding }"
+                  ScrollViewer.IsDeferredScrollingEnabled="True"
+                  Margin="-4,0,4,0">
+            <!--列-->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="手机号" x:Name="PhoneTextColumn" Binding="{Binding Path=User.PhoneNum,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="*" />
+                <DataGridTextColumn Header="姓名" Binding="{Binding Path=User.Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="*" />
+                <DataGridTextColumn Header="性别" Binding="{Binding Path=User.Sex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="*" />
+                <DataGridTextColumn Header="昵称" Binding="{Binding Path=User.Nickname,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="*" />
+                <DataGridTemplateColumn Header="位置信息" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                                <Button Content="查看" Tag="{Binding ElementName=PhoneTextColumn}" x:Name="LocationButton"   DataContext="{Binding ElementName=FaUserControl,Path=DataContext}"
+                                    Style="{StaticResource NewBtStyle}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <ei:CallMethodAction MethodName="LocationButton_OnClick"  TargetObject="{Binding }" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="用户轨迹" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                                <Button Content="查看" Tag="{Binding ElementName=PhoneTextColumn}" x:Name="TrackButton"   DataContext="{Binding ElementName=FaUserControl,Path=DataContext}"
+                                    Style="{StaticResource NewBtStyle}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <ei:CallMethodAction MethodName="TrackButton_OnClick"  TargetObject="{Binding }" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

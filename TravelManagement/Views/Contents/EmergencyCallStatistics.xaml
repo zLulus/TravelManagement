@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="TravelManagement.Views.Contents.EmergencyCallStatistics"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelManagement.Views.Contents"
+             xmlns:metroChart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart"
+             mc:Ignorable="d" 
+             DataContext="{Binding Source={StaticResource Locator}, Path=EmergencyCallViewModel}">
+    <UserControl.Resources>
+        <Style x:Key="MinimalChartStyle" TargetType="metroChart:ChartBase"></Style>
+    </UserControl.Resources>
+    <Grid Margin="50,0,50,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="16*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DatePicker Margin="0,0,20,0"
+	            SelectedDate="{Binding Model.StartTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                DisplayDate="{Binding Model.StartTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            </DatePicker>
+            <DatePicker Margin="0,0,20,0"
+                SelectedDate="{Binding Model.EndTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                DisplayDate="{Binding Model.EndTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"></DatePicker>
+            <Button Command="{Binding StatisticsCommand}" Grid.Column="2" Content="统计"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DataGrid IsEnabled="False"  AutoGenerateColumns="False" DataContext="{Binding Model.EmergencyCallCollection}" ItemsSource="{Binding }">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="时间" Binding="{Binding Time,StringFormat='yyyy/MM/dd HH:mm'}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="经度" Binding="{Binding Longitude}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="纬度" Binding="{Binding Latitude}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="呼救手机号码" Binding="{Binding PhoneNum}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

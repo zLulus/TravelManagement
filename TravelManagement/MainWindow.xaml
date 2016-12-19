@@ -1,0 +1,205 @@
+﻿<Window x:Class="TravelManagement.MainWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:my="clr-namespace:TravelManagement"
+                  WindowStartupLocation="CenterScreen"
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  xmlns:views="clr-namespace:TravelManagement.Views"
+                  xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                  xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+                  Title="景区管理系统" Icon="Resources/Image/sign.png"
+                  WindowState="Maximized"
+                  DataContext="{Binding Source={StaticResource Locator},Path=MainWindowViewModel}">
+    <!--Style="{StaticResource  MyModernWindow}"-->
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <ei:CallMethodAction MethodName="MainWindow_Loaded" TargetObject="{Binding }" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
+    <Window.Resources>
+        <Style x:Key="BackButtonStyle" TargetType="Button">
+            <Setter Property="MinWidth" Value="0"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="AutomationProperties.AutomationId" Value="BackButton"/>
+            <Setter Property="AutomationProperties.Name" Value="Back"/>
+            <Setter Property="AutomationProperties.ItemType" Value="Navigation Button"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="RootGrid">
+                            <Grid Margin="-1,-16,0,0">
+                                <TextBlock x:Name="BackgroundGlyph" Text="&#xE0A8;" Foreground="Transparent"/>
+                                <TextBlock x:Name="NormalGlyph" Text="&#xE071;" Foreground="#FF666666"/>
+                                <TextBlock x:Name="ArrowGlyph" Text="&#xE0A6;" Foreground="Black" Opacity="0"/>
+                            </Grid>
+                            <Rectangle
+                            x:Name="FocusVisualWhite"
+                            IsHitTestVisible="False"
+                            Stroke="White"
+                            StrokeEndLineCap="Square"
+                            StrokeDashArray="1,1"
+                            Opacity="0"
+                            StrokeDashOffset="1.5"/>
+                            <Rectangle
+                            x:Name="FocusVisualBlack"
+                            IsHitTestVisible="False"
+                            Stroke="Black"
+                            StrokeEndLineCap="Square"
+                            StrokeDashArray="1,1"
+                            Opacity="0"
+                            StrokeDashOffset="0.5"/>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="#FF666666"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NormalGlyph" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="Black"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="#FF666666"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NormalGlyph" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="Black"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="Black"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation
+                                            Storyboard.TargetName="ArrowGlyph"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                            <DoubleAnimation
+                                            Storyboard.TargetName="NormalGlyph"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
+                                            Duration="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00.300">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Collapsed</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                            Storyboard.TargetName="FocusVisualWhite"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                            <DoubleAnimation
+                                            Storyboard.TargetName="FocusVisualBlack"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unfocused" />
+                                    <VisualState x:Name="PointerFocused" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BasicTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF666666"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="TextTrimming" Value="WordEllipsis"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Typography.StylisticSet20" Value="True"/>
+            <Setter Property="Typography.DiscretionaryLigatures" Value="True"/>
+            <Setter Property="Typography.CaseSensitiveForms" Value="True"/>
+        </Style>
+        <Style x:Key="BaselineTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BasicTextStyle}">
+            <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+        </Style>
+        <Style x:Key="HeaderTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaselineTextStyle}">
+            <Setter Property="FontSize" Value="42"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="TextTrimming" Value="WordEllipsis"/>
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TranslateTransform X="-1" Y="0"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PageHeaderTextStyle" TargetType="TextBlock" BasedOn="{StaticResource HeaderTextStyle}">
+            <Setter Property="Margin" Value="0,5,10,0"/>
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="LineHeight" Value="40" />
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Visibility="{Binding Visibility}" x:Name="GoBackBT" Width="40" Margin="5" Height="40" Style="{DynamicResource BackButtonStyle}" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" Command="{Binding GoBackCommand}"></Button>
+            <TextBlock x:Name="PageBlock" Margin="0" Text="{Binding TitleText}" FontFamily="Microsoft Jhenghei" Grid.Column="1" Style="{StaticResource PageHeaderTextStyle}"></TextBlock>
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Microsoft Jhenghei" FontSize="50" LineHeight="60" Margin="500,50,0,0" Text="景区管理系统" Visibility="{Binding TitleVisibility}"></TextBlock>
+        </Grid>
+        <Grid x:Name="ViewContiner" Grid.Row="1">
+            <views:ModelsUserControl></views:ModelsUserControl>
+        </Grid>
+    </Grid>
+</Window>

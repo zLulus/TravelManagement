@@ -1,0 +1,43 @@
+﻿<mui:ModernWindow x:Class="TravelManagement.Views.Dialog.Dialog_ShowTouristLocation"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
+                  xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                  Style="{StaticResource BlankWindow}"
+                  WindowStartupLocation="CenterScreen"
+                  DataContext="{Binding Source={StaticResource Locator},Path=TouristLocationViewModel}"
+                  Title="用户位置" Height="600" Width="600">
+    <Grid>
+        <esri:MapView x:Name="MyMapView" >
+            <esri:Map>
+                <esri:Map.InitialViewpoint>
+                    <!--Center on San Diego, at scale 1:50,000, using coordinates in WGS84 spatial reference (4326)-->
+                    <esri:ViewpointCenter X="116.45" Y="39.90" Scale="100000" SpatialReferenceID="4326" />
+                </esri:Map.InitialViewpoint>
+             
+                <esri:ArcGISTiledMapServiceLayer
+                    ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+                <esri:GraphicsLayer ID="GraphicsLayer" x:Name="Layer"/>
+            </esri:Map>
+         
+            <esri:MapView.Overlays>
+                <esri:OverlayItemsControl>
+                    <Border x:Name="mapTip" Background="White" BorderBrush="Black" BorderThickness="2"
+                            Padding="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4"
+                            Visibility="Visible"
+                            DataContext="{Binding ElementName=Layer,Path=Graphics}"
+                            esri:ViewBase.ViewOverlayAnchor="{Binding Geometry}">
+                        <StackPanel MaxWidth="180">
+                            <TextBlock Text="{Binding Attributes[PhoneNum], StringFormat='手机号: {0}'}" TextWrapping="Wrap" />
+                            <TextBlock Text="{Binding Attributes[Name], StringFormat='姓名: {0}'}" TextWrapping="Wrap" />
+                            <TextBlock Text="{Binding Attributes[Longitude], StringFormat='经度: {0}'}" TextWrapping="Wrap" />
+                            <TextBlock Text="{Binding Attributes[Latitude], StringFormat='纬度: {0}'}" TextWrapping="Wrap" />
+                            <TextBlock Text="{Binding Attributes[Time], StringFormat='时间: {0}'}" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Border>
+                </esri:OverlayItemsControl>
+            </esri:MapView.Overlays>
+        </esri:MapView>
+    </Grid>
+</mui:ModernWindow>

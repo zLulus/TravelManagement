@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="TravelManagement.Views.Contents.SendMsgs"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelManagement.Views.Contents"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{Binding Source={StaticResource Locator}, Path=SendMsgsViewModel}">
+    <Grid Margin="120,0,120,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="0,0,0,10" Text="该功能用于发送日常咨询，将发送至所有用户手机app。如遇紧急事态，请使用“推送紧急消息”功能。"></TextBlock>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="发送消息：" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <TextBox Grid.Column="1" Margin="2,2,250,2" Text="{Binding Content}"></TextBox>
+        </Grid>
+        <Button Command="{Binding SendCommand}" Grid.Row="2" Margin="2,2,250,2" Content="发送" HorizontalAlignment="Right" VerticalAlignment="Top" ></Button>
+    </Grid>
+</UserControl>

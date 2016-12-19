@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="TravelManagement.Views.Contents.LostContactStatistics"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelManagement.Views.Contents"
+             xmlns:metroChart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart"
+             xmlns:converters="clr-namespace:TravelManagement.Converters"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" x:Name="lostContactUserControl"
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{Binding Source={StaticResource Locator}, Path=LostContactViewModel}">
+   
+    <Grid Margin="50,0,50,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="16*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DatePicker Margin="0,0,20,0"
+	            SelectedDate="{Binding Model.StartTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                DisplayDate="{Binding Model.StartTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            </DatePicker>
+            <DatePicker Margin="0,0,20,0"
+                SelectedDate="{Binding Model.EndTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                DisplayDate="{Binding Model.EndTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"></DatePicker>
+            <CheckBox Margin="0,0,20,0" IsChecked="{Binding Model.HasSolved}" Grid.Column="2" Content="是否包含已解决记录"></CheckBox>
+            <Button Command="{Binding StatisticsCommand}" Grid.Column="3" Content="统计"></Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DataGrid SelectedItem="{Binding Model.Selected}" IsEnabled="True" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding }" ItemsSource="{Binding Model.LostContactCollection}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="检索时间" Binding="{Binding SearchMoment,StringFormat='yyyy/MM/dd HH:mm'}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="姓名" Binding="{Binding MyUser.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="性别" Binding="{Binding MyUser.Sex}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="手机号码" Binding="{Binding MyUser.PhoneNum}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="异常级别" Binding="{Binding Grade,Converter={StaticResource gradeConverter}}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="4*" Header="异常情况" Binding="{Binding State}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="是否解决" Width="*"  >
+                        <!--单元格模板-->
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Name="ckbItem" IsChecked="{Binding IsSolved,Converter={StaticResource isSolvedConverter},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Center" Command="{Binding DataContext.ResolveCommand, ElementName=lostContactUserControl}"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>
