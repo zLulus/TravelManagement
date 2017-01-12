@@ -76,8 +76,8 @@
 包括APP软件客户端所需所有数据，数据结构如图所示：	       
  ![14](https://cloud.githubusercontent.com/assets/19277908/21892583/78bc4b92-d912-11e6-863f-7c182362487d.png)        
                                            4.1 服务器数据库数据结构图      
-	除此之外，移动端也有本地数据库，存储部分离线数据，采用SQLite数据库。        
-5 关键技术      
+	除此之外，移动端也有本地数据库，存储部分离线数据，采用SQLite数据库。        
+# 5 关键技术       
 （1）GIS移动开发技术         
 	ARCGIS Runtime SDK for xamarin(beta)：ARCGIS Runtime SDK针对Xamarin平台的SDK。在本项目中，利用ARCGIS Runtime SDK完成地图显示、定位、查询好友当前位置、查询好友当天行迹、查看群组内所有成员位置、查看旅行足迹的地理轨迹等功能。     
 （2）互联网技术     
